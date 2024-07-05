@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/26 19:18:26 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/07/04 19:38:30 by joseoliv         ###   ########.fr       */
+/*   Created: 2024/06/26 19:21:35 by joseoliv          #+#    #+#             */
+/*   Updated: 2024/07/04 17:18:51 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#ifndef MINITALK_H
+# define MINITALK_H
 
+# include <unistd.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <stdio.h>
 
-
-int	main_server(void)
-{
-	int pid;
-
-	pid = getpid();
-	printf("%d", pid);
-	while (1)
-	{
-		
-	}
-}
+#endif
