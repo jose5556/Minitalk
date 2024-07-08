@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:18:26 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/07/08 17:08:37 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/07/08 17:11:41 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ void	handler(int signum)
 
 int		main_server(void)
 {
-	
-	int				pid;
-	struct sigaction sa;
+	struct sigaction 	sa;
+	int					pid;
 	
 	sa.sa_handler = &handler;
 	pid = getpid();
