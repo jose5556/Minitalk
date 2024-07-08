@@ -6,22 +6,26 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:18:26 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/07/04 19:38:30 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/07/08 17:08:37 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-
-
-int	main_server(void)
+void	handler(int signum)
 {
-	int pid;
+	
+}
 
+int		main_server(void)
+{
+	
+	int				pid;
+	struct sigaction sa;
+	
+	sa.sa_handler = &handler;
 	pid = getpid();
 	printf("%d", pid);
-	while (1)
-	{
-		
-	}
+	
+	sigaction(SIGUSR1, &sa, NULL);
 }
