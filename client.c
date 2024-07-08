@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:18:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/07/04 20:19:11 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:20:10 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 void	client_handler(int pid, char *str)
 {
-	char	*binary_char;
-	int		nine;
+	int		i;
 
-	nine = 9;
-	binary_char = calloc(9, sizeof(char));
-	while (nine)
+	i = 9;
+	while (*str)
 	{
-		
-	}
-	
-	while (str)
-	{
-		int i;
-		
-		i = 0;
-		
+		while(*str && i)
+		{
+			if (*str | 0)
+				kill(pid, SIGUSR1);
+			else
+				kill(pid, SIGUSR2);
+			*str == *str << 1;
+			i--;
+		}
+		i = 9;
+		str++;
 	}
 }
 
