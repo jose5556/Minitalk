@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:18:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/07/18 08:16:46 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/07/18 10:54:50 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,24 @@ void	client_handler(int pid, char *str)
 {
 	int		i;
 
-	i = 9;
+	i = 0;
 	while (*str)
 	{
-		while(*str && i)
+		while (*str && i < 7)
 		{
-			if (*str | 0)
+			if (*str & 1)
 				kill(pid, SIGUSR1);
 			else
 				kill(pid, SIGUSR2);
-			*str == *str << 1;
-			i--;
+			*str >>= 1;
+			i++;
 		}
-		i = 9;
 		str++;
+		i = 0;
 	}
 }
 
-int		main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	if (argc == 3)
 		client_handler(ft_atoi(argv[1]), argv[2]);
