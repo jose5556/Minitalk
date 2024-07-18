@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:18:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/07/18 10:54:50 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/07/18 11:54:33 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	client_handler(int pid, char *str)
 int	main(int argc, char *argv[])
 {
 	if (argc == 3)
-		client_handler(ft_atoi(argv[1]), argv[2]);
+		client_handler(atoi(argv[1]), argv[2]);
 	else
 	{
 		printf(" no no no ");
