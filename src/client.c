@@ -6,14 +6,11 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:18:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/07/09 19:42:24 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/07/18 08:16:46 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <signal.h>
-# include <stdio.h>
+#include "../minitalk.h"
 
 void	client_handler(int pid, char *str)
 {
