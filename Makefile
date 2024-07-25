@@ -6,34 +6,36 @@
 #    By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/09 19:43:00 by joseoliv          #+#    #+#              #
-#    Updated: 2024/07/18 08:23:15 by joseoliv         ###   ########.fr        #
+#    Updated: 2024/07/25 07:35:43 by joseoliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = minitalk.a
+NAME1 = server
+NAME2 = client
+NAME = $(NAME1) $(NAME2)
+
 SRCS_CLIENT = ./src/client.c
 SRCS_SERVER = ./src/server.c
 
-OBJ_SERVER = $(SRC_SERVER:.c=.o)
-OBJ_CLIENT = $(SRC_CLIENT:.c=.o)
+OBJ_CLIENT = $(SRCS_CLIENT:.c=.o)
+OBJ_SERVER = $(SRCS_SERVER:.c=.o)
 
-CC=cc
-FLAGS=-Wall -Wextra -Werror
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
 FT_PRINTF = ./include/ft_printf/libftprintf.a
 LIBFT = ./include/libft/libft.a
 
-NAME = $(NAME1) $(NAME2)
-
-NAME1 = server
-NAME2 = client
+.PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME): $(FT_PRINTF) $(LIBFT) $(OBJ_CLIENT) $(OBJ_SERVER)
-	$(CC) $(CFLAGS) $(OBJ_CLIENT) -o $(NAME2) $(FT_PRINTF) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJ_SERVER) -o $(NAME1) $(FT_PRINTF) $(LIBFT)
+$(NAME1): $(OBJ_SERVER) $(FT_PRINTF) $(LIBFT)
+	@$(CC) $(CFLAGS) $(OBJ_SERVER) -o $(NAME1) $(FT_PRINTF) $(LIBFT)
+
+$(NAME2): $(OBJ_CLIENT) $(FT_PRINTF) $(LIBFT)
+	@$(CC) $(CFLAGS) $(OBJ_CLIENT) -o $(NAME2) $(FT_PRINTF) $(LIBFT)
 
 $(FT_PRINTF):
 	@make -C ./include/ft_printf -s
@@ -42,13 +44,13 @@ $(LIBFT):
 	@make -C ./include/libft -s
 
 clean:
-	$(RM) $(OBJ_CLIENT) $(OBJ_SERVER)
-	@make -C ./include/ft_printf/ clean -s
-	@make -C ./include/libft/ clean -s
+	@$(RM) $(OBJ_CLIENT) $(OBJ_SERVER)
+	@make -C ./include/ft_printf clean -s
+	@make -C ./include/libft clean -s
 
 fclean: clean
-	$(RM) $(NAME1) $(NAME2)
-	@make -C ./include/ft_printf/ fclean -s
-	@make -C ./include/libft/ fclean -s
+	@$(RM) $(NAME1) $(NAME2)
+	@make -C ./include/ft_printf fclean -s
+	@make -C ./include/libft fclean -s
 
 re: fclean all
