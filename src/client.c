@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:18:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/07/25 07:12:33 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/07/25 09:27:39 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@ void	client_handler(int pid, char *str)
 {
 	int		i;
 
-	i = 0;
+	i = 7;
 	while (*str)
 	{
-		while (*str && i < 7)
+		while (i >= 0)
 		{
-			if (*str & 1)
+			if ((*str >> i) & 1)
 				kill(pid, SIGUSR1);
 			else
 				kill(pid, SIGUSR2);
-			*str >>= 1;
-			i++;
+			i--;
+			str++;
 		}
 		str++;
-		i = 0;
+		i = 7;
 	}
 }
 
@@ -39,7 +39,7 @@ int	main(int argc, char *argv[])
 		client_handler(ft_atoi(argv[1]), argv[2]);
 	else
 	{
-		printf(" no no no ");
+		ft_printf(" no no no ");
 		return (1);
 	}
 }
