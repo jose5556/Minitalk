@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:18:26 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/07/25 07:12:51 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/07/25 09:29:42 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@ void	server_handler(int signum)
 {
 	if (signum == SIGUSR1)
 	{
-		write (1, "1", 1);
-		write (1, "\n", 1);
+		ft_printf("1");
 	}
 	else if (signum == SIGUSR2)
 	{
-		write (1, "0", 1);
-		write (1, "\n", 1);
+		ft_printf("0");
 	}
 }
 
@@ -32,6 +30,7 @@ int	main(void)
 	int					pid;
 
 	sa.sa_handler = &server_handler;
+	sigemptyset(&sa.sa_mask);
 	pid = getpid();
 	ft_printf("%d\n", pid);
 	if (sigaction(SIGUSR1, &sa, NULL) == -1)
@@ -42,4 +41,5 @@ int	main(void)
 	{
 		pause();
 	}
+	ft_printf("\n");
 }
