@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 08:08:10 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/07/25 07:18:14 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/07/25 09:43:19 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include "./include/ft_printf/ft_printf.h"
 # include "./include/libft/libft.h"
 
-void	client_handler(int pid, char *str);
+void	client_handler(int pid, char c);
 void	server_handler(int signum);
 
 #endif
