@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:18:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/07/26 12:47:36 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/07/27 17:04:08 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	client_handler(int pid, char c)
 		else
 			kill(pid, SIGUSR2);
 		i--;
-		usleep(200);
+		usleep(150);
 	}
 }
 
@@ -48,5 +48,4 @@ int	main(int argc, char *argv[])
 		i++;
 	}
 	client_handler(pid, '\0');
-	return (0);
 }
