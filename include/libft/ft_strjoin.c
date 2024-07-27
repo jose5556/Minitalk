@@ -6,13 +6,13 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:34:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/04/19 17:32:06 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/07/27 17:58:09 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const s2)
 {
 	char	*result;
 	int		i;
