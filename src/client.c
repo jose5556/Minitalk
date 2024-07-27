@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:18:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/07/27 17:04:08 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/07/27 18:00:52 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char *argv[])
 		return (1);
 	while (argv[2][i])
 	{
-		client_handler(pid, argv[2][i]);		
+		client_handler(pid, argv[2][i]);
 		i++;
 	}
 	client_handler(pid, '\0');
