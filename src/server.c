@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:18:26 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/07/26 12:51:34 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/07/27 17:03:21 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 void	server_handler(int signum)
 {
 	static int i = 7;
-	static int chr = 0;
+	static int decimal_num = 0;
 
 	if (signum == SIGUSR1)
 	{
-		chr += ft_pow(2, i);
+		decimal_num += 1 << i;
 		i--;
 	}
 	else if (signum == SIGUSR2)
-	{
 		i--;
-	}
-	if (i == 0)
+	else
+		return ;
+	if (i < 0)
 	{
-		ft_printf("%d", chr);
+		ft_printf("%d\n", decimal_num);
 		i = 7;
-		chr = 0;
+		decimal_num = 0;
 	}
 }
 
