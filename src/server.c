@@ -6,17 +6,21 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:18:26 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/07/27 17:06:47 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/07/27 18:02:26 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minitalk.h"
 
+char	*g_final_word;
+
 void	server_handler(int signum)
 {
-	static int i = 7;
-	static char decimal_num = 0;
+	static int	i = 7;
+	static char	decimal_num = 0;
 
+	if (!g_final_word)
+		g_final_word = ft_calloc(1, 1);
 	if (signum == SIGUSR1)
 	{
 		decimal_num += 1 << i;
@@ -28,7 +32,12 @@ void	server_handler(int signum)
 		return ;
 	if (i < 0)
 	{
-		write (1, &decimal_num, 1);
+		if (decimal_num == 0)
+		{
+			ft_printf("%s", g_final_word);
+			return ;
+		}
+		g_final_word = ft_strjoin(g_final_word, decimal_num);
 		i = 7;
 		decimal_num = 0;
 	}
