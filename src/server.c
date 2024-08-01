@@ -6,38 +6,49 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:18:26 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/07/27 18:02:26 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/08/01 14:46:41 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minitalk.h"
 
-char	*g_final_word;
+void	fill_string(char c)
+{
+	static char*	result = NULL;
+	char*			new_str;
+
+	if (!result)
+	{
+		result = ft_calloc(2, sizeof(char));
+		if (!result)
+			return ;
+		result[0] = c;
+		return ;
+	}
+	new_str = ft_strjoin(result, c);
+	if (!new_str)
+		return;
+	free(result);
+	result = new_str;
+	if (c == 0)
+	{
+		ft_printf("%s", result);
+		free(result);
+		result = NULL;
+	}
+}
 
 void	server_handler(int signum)
 {
 	static int	i = 7;
 	static char	decimal_num = 0;
 
-	if (!g_final_word)
-		g_final_word = ft_calloc(1, 1);
 	if (signum == SIGUSR1)
-	{
 		decimal_num += 1 << i;
-		i--;
-	}
-	else if (signum == SIGUSR2)
-		i--;
-	else
-		return ;
+	i--;
 	if (i < 0)
 	{
-		if (decimal_num == 0)
-		{
-			ft_printf("%s", g_final_word);
-			return ;
-		}
-		g_final_word = ft_strjoin(g_final_word, decimal_num);
+		fill_string(decimal_num);
 		i = 7;
 		decimal_num = 0;
 	}
