@@ -6,7 +6,7 @@
 #    By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/09 19:43:00 by joseoliv          #+#    #+#              #
-#    Updated: 2024/07/27 18:00:09 by joseoliv         ###   ########.fr        #
+#    Updated: 2024/08/01 14:42:45 by joseoliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS_SERVER = ./src/server.c
 OBJ_CLIENT = $(SRCS_CLIENT:.c=.o)
 OBJ_SERVER = $(SRCS_SERVER:.c=.o)
 
-CC = cc
+CC = gcc -g
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
