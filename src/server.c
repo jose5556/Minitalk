@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:18:26 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/08/01 14:46:41 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/08/02 16:30:57 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	fill_string(char c)
 {
-	static char*	result = NULL;
-	char*			new_str;
+	static char		*result = NULL;
+	char			*new_str;
 
 	if (!result)
 	{
@@ -27,7 +27,7 @@ void	fill_string(char c)
 	}
 	new_str = ft_strjoin(result, c);
 	if (!new_str)
-		return;
+		return ;
 	free(result);
 	result = new_str;
 	if (c == 0)
