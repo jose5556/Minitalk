@@ -6,13 +6,13 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 16:32:27 by joseoliv          #+#    #+#             */
-/*   Updated: 2024/08/02 16:33:26 by joseoliv         ###   ########.fr       */
+/*   Updated: 2024/08/03 17:48:19 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minitalk_bonus.h"
 
-void	client_handler(int pid, char c)
+void	client_sender(int pid, char c)
 {
 	int		i;
 
@@ -28,24 +28,41 @@ void	client_handler(int pid, char c)
 	}
 }
 
+void	client_handler(int signum)
+{
+	if (signum == SIGUSR1)
+	{
+		ft_printf("<------Message sent------>\n");
+		exit(0);
+	}
+	else
+		return ;
+}
+
 int	main(int argc, char *argv[])
 {
-	int	i;
-	int	pid;
+	int					i;
+	int					pid;
+	struct sigaction	sa;
 
-	i = 0;
 	if (argc != 3)
 	{
-		ft_printf("no no no, write the PID, and then the message please!");
+		ft_printf("no no no, write the PID, and then the message please!\n");
 		return (1);
 	}
+	sa.sa_handler = &client_handler;
+	sa.sa_flags = 0;
+	sigemptyset(&sa.sa_mask);
 	pid = ft_atoi(argv[1]);
+	if (sigaction(SIGUSR1, &sa, NULL) == -1)
+		exit(1);
 	if (pid == -1)
 		return (1);
+	i = 0;
 	while (argv[2][i])
 	{
-		client_handler(pid, argv[2][i]);
+		client_sender(pid, argv[2][i]);
 		i++;
 	}
-	client_handler(pid, '\0');
+	client_sender(pid, '\0');
 }
