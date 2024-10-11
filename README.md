@@ -1,5 +1,5 @@
 <h1 align="center">
-	📡 minitalk
+	📡 Minitalk
 </h1>
 <p align="center">
 	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/jose5556/minitalk?color=lightblue" />
