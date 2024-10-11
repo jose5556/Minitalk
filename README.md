@@ -10,11 +10,14 @@
 
 ## 💡 About the project
 
-Minitalk is a project completed during my studies at School 42. The objective of this project is to create a simple communication program using UNIX signals. The program consists of a server and a client, where the client sends a message of any size to the server extremely fast, which then displays it.
+Minitalk is a project completed during my studies at School 42. The objective of this project is to create a simple communication program using UNIX signals. 
+The program consists of a server and a client, where the client sends a message of any size to the server extremely fast, which then displays it.
 
 ## Overview
 
-The project involves the implementation of a server and a client using signal handling. The server waits for messages from the client, which are sent one character at a time using SIGUSR1 and SIGUSR2 signals. The server then reconstructs the message and prints it to the standard output.
+The project involves the implementation of a server and a client using signal handling. 
+The server waits for messages from the client, which are sent one character at a time using SIGUSR1 and SIGUSR2 signals. 
+The server then reconstructs the message and prints it to the standard output.
 
 For more detailed information about the implementation, please refer to the project files and documentation.
 
