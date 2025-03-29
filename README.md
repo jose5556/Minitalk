@@ -19,7 +19,6 @@ The project involves the implementation of a server and a client using signal ha
 The server waits for messages from the client, which are sent one character at a time using SIGUSR1 and SIGUSR2 signals. 
 The server then reconstructs the message and prints it to the standard output.
 
-For more detailed information about the implementation, please refer to the project files and documentation.
 
 # 🛠️ Usage
 
